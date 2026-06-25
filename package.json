@@ -1,0 +1,52 @@
+{
+  "name": "moyu-page",
+  "version": "1.0.0",
+  "description": "分屏笔记桌面应用 — 文档学习与视频浏览",
+  "main": "desktop/main.js",
+  "author": "cpy",
+  "scripts": {
+    "start": "node desktop/launch.js",
+    "electron": "node desktop/launch.js",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.moyu.notes",
+    "productName": "笔记",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "desktop/**/*",
+      "index.html",
+      "server.js",
+      "package.json"
+    ],
+    "asar": true,
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "identity": null
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
